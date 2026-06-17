@@ -8,6 +8,9 @@ RUN npm install --production
 
 COPY . .
 
+RUN ls -la /app
+
 EXPOSE 3000
 
-CMD ["npm","start"]
+
+CMD ["node","app.js","npm","start"]
