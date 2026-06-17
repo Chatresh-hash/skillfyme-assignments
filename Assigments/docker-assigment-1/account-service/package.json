@@ -2,9 +2,9 @@
   "name": "account-service",
   "version": "1.0.0",
   "description": "SkillfyBank Account Management Microservice",
-  "main": "src/index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^4.19.2",
