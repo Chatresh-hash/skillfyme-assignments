@@ -3,34 +3,30 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.5</version>
-        <relativePath/> 
+        <relativePath/>
     </parent>
-
-    <groupId>com.skillfybank</groupId>
+    
+    <groupId>com.bank</groupId>
     <artifactId>transaction-service</artifactId>
     <version>1.0.0</version>
     <name>transaction-service</name>
-    <description>SkillfyBank Transaction Processing Engine</description>
+    <description>Core Banking Transaction Processing Engine</description>
 
     <properties>
         <java.version>17</java.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+        <sidebar>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+            </dependency>
+        </sidebar>
     </dependencies>
 
     <build>
@@ -38,10 +34,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.skillfybank.transactionservice.TransactionServiceApplication</mainClass>
-
-                </configuration>
             </plugin>
         </plugins>
     </build>
