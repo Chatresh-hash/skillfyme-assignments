@@ -1,8 +1,14 @@
 package com.bank;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 import java.util.UUID;
 
+@SpringBootApplication
+@RestController
+@RequestMapping("/transactions")
 public class TransactionApplication {
 
     public static void main(String[] args) {
