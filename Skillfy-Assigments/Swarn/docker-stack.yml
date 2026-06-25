@@ -1,0 +1,52 @@
+version: "3.8"
+
+networks:
+  skillfybank-net:
+    driver: overlay
+
+services:
+  account-service:
+    image: <your-dockerhub-username>/account-service:1.0.0
+    ports:
+      - "3000:3000"
+    networks:
+      - skillfybank-net
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == worker]
+
+  transaction-service:
+    image: <your-dockerhub-username>/transaction-service:1.0.0
+    ports:
+      - "8080:8080"
+    networks:
+      - skillfybank-net
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+      restart_policy:
+        condition: any
+      placement:
+        constraints: [node.role == manager]
+
+  notification-service:
+    image: <your-dockerhub-username>/notification-service:1.0.0
+    ports:
+      - "5000:5000"
+    networks:
+      - skillfybank-net
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 30s
+      placement:
+        constraints: [node.role == worker]
